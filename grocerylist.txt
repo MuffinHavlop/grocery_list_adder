@@ -1,0 +1,10 @@
+----------------GROCERY LIST--------------------
+1.MEAT:
++ Beef: 3 pounds. 
++ Lamb: 4 pounds.
++ Chicken: 2 pounds.
+
+2.VEGGIES
++ Carrot: 400 grams.
++ Cabbage: 500 grams.
+
