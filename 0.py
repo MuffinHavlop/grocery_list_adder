@@ -18,10 +18,11 @@ with open ('grocerylist.txt') as file:
 
 @decorator
 def more_grocery():
-    more = input("Add more grocery: ")
+    global category
+    more = input(f"Add more {category}: ")
+    print(f"Adding: ({more})")
     with open('grocerylist.txt', 'a') as file:
         file.write(f"\n{more}")
-    print(f"Adding: ({more})")
     time.sleep(2)
     print(f"Added {more}")
 
@@ -32,15 +33,17 @@ def no_more_grocery():
     print("Saved")
     exit()
 
-
-match input("would you like to add anything ?(y/n): "):
-    case "y":
-        with open('grocerylist.txt', 'a') as file:
-            file.write("\n----------------MORE GROCERY--------------------") 
-        more_grocery()
-    case "n":
-        no_more_grocery()
-    case _:
-        print("Invalid input")
+while True:
+    match input("would you like to add anything ?(y/n): "):
+        case "y":
+            with open('grocerylist.txt', 'a') as file:
+                category = input("What category is the new goods you're adding?: ")
+                category = category.upper()
+                file.write(f"\n---------------- {category}--------------------") 
+            more_grocery()
+        case "n":
+            no_more_grocery()
+        case _:
+            print("Invalid input")
 
             
